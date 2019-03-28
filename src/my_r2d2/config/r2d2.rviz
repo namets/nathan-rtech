@@ -202,32 +202,31 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          base_footprint:
-            {}
-          gripper_pole:
-            left_gripper:
-              left_tip:
-                {}
-            right_gripper:
-              right_tip:
-                {}
-          head:
-            box:
-              lens:
-                {}
-          left_leg:
-            left_base:
-              left_back_wheel:
-                {}
-              left_front_wheel:
-                {}
-          right_leg:
-            right_base:
-              right_back_wheel:
-                {}
-              right_front_wheel:
-                {}
+        base_footprint:
+          base_link:
+            gripper_pole:
+              left_gripper:
+                left_tip:
+                  {}
+              right_gripper:
+                right_tip:
+                  {}
+            head:
+              box:
+                lens:
+                  {}
+            left_leg:
+              left_base:
+                left_back_wheel:
+                  {}
+                left_front_wheel:
+                  {}
+            right_leg:
+              right_base:
+                right_back_wheel:
+                  {}
+                right_front_wheel:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -255,7 +254,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.33504772
+      Distance: 2.54842854
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -270,10 +269,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.22539717
+      Pitch: 0.545396805
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.143582493
+      Yaw: 0.0035824636
     Saved: ~
 Window Geometry:
   Displays:
