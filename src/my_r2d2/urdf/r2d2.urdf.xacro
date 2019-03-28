@@ -257,4 +257,12 @@
     <child link="base_link"/>
   </joint>
 
+  <link name="eye">
+  </link>
+  <joint name="eye_lens" type="continuous">
+    <origin rpy="0 0 1.57"/>
+    <parent link="lens"/>
+    <child link="eye"/>
+  </joint>
+
 </robot>
