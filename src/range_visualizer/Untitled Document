@@ -1,0 +1,4 @@
+roscore
+
+roslaunch range_visualizer range_test.launch
+

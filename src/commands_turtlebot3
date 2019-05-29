@@ -1,0 +1,7 @@
+GAZEBO
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+
+Mapped world
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/nathan-rtech/src/mymap.yaml
