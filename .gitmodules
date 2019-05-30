@@ -7,3 +7,23 @@
 [submodule "src/turtlebot3_simulations"]
 	path = src/turtlebot3_simulations
 	url = https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+[submodule "panda_moveit_config"]
+	path = panda_moveit_config
+	url = https://github.com/ros-planning/panda_moveit_config.git
+	branch = melodic-devel
+[submodule "src/panda_moveit_config"]
+	path = src/panda_moveit_config
+	url = https://github.com/ros-planning/panda_moveit_config.git
+	branch = melodic-devel
+[submodule "src/moveit_tutorials"]
+	path = src/moveit_tutorials
+	url = https://github.com/ros-planning/moveit_tutorials.git
+	branch = kinetic-devel
+[submodule "motoman"]
+	path = motoman
+	url = https://github.com/ros-industrial/motoman
+	branch = kinetic-devel
+[submodule "src/universal_robot"]
+	path = src/universal_robot
+	url = https://github.com/ros-industrial/universal_robot.git
+	branch = kinetic-devel
