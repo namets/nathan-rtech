@@ -203,6 +203,3 @@ catkin_package()
 
 add_executable(range_publisher src/range_publisher.cpp)
 target_link_libraries(range_publisher ${catkin_LIBRARIES})
-
-add_executable(range_filter src/range_filter.cpp)
-target_link_libraries(range_filter ${catkin_LIBRARIES})
