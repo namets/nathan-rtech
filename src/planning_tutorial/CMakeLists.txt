@@ -204,5 +204,3 @@ include_directories(
 add_executable(moveit_tutorial_cpp_test src/planning_tutorial.cpp)
 target_link_libraries(moveit_tutorial_cpp_test ${catkin_LIBRARIES})
 
-add_executable(moveit_pose_test src/moveit_test.cpp)
-target_link_libraries(moveit_pose_test ${catkin_LIBRARIES})
