@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<robot name="spider_bot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="wheeldiam" value="0.07" />
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+
+  <link name="body_neck">
+    <visual>
+    <origin xyz="0 0 0.25" rpy="${pi/2} 0 0"/>
+      <geometry>
+        <cylinder length="0.4" radius="0.2"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+  
+  <link name="body_round">
+    <visual>
+      <geometry>
+        <sphere radius="0.5"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="neck_body" type="fixed">
+    <origin xyz="0 -0.5 0.3" rpy="0 0 0"/>
+    <parent link="body_neck"/>
+    <child link="body_round"/>
+  </joint>
+
+  <link name="back_signet">
+    <visual>
+      <geometry>
+        <box size="0.3 0.3 0.05"/>
+      </geometry>
+    <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="signet_1" type="fixed">
+    <origin xyz="0 0 0.48" rpy="0 0 0"/>
+    <parent link="body_round"/>
+    <child link="back_signet"/>
+  </joint>
+
+  <link name="back_box_1">
+    <visual>
+      <geometry>
+        <box size="0.22 0.22 0.13"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="signet_cover_1" type="fixed">
+    <origin xyz="0.15 0 -0.039" rpy="0 0 ${pi/4}"/>
+    <parent link="back_signet"/>
+    <child link="back_box_1"/>
+  </joint>
+
+  <link name="back_box_2">
+    <visual>
+      <geometry>
+        <box size="0.22 0.22 0.13"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="signet_cover_2" type="fixed">
+    <origin xyz="-0.15 0 -0.039" rpy="0 0 ${pi/4}"/>
+    <parent link="back_signet"/>
+    <child link="back_box_2"/>
+  </joint>
+
+  <link name="leg_1">
+    <visual>
+      <geometry>
+        <box size="0.5 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="leg_1_joint" type="fixed">
+    <origin xyz="-0.3 0 0.25" rpy="0 0 ${pi}"/>
+    <parent link="body_neck"/>
+    <child link="leg_1"/>
+  </joint>
+
+  <link name="foot_1">
+    <visual>
+      <geometry>
+        <box size="0.5 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="leg_to_foot_1" type="fixed">
+    <origin xyz="0.42 0 -0.17" rpy="0 -${pi/4} ${pi}"/>
+    <parent link="leg_1"/>
+    <child link="foot_1"/>
+  </joint>
+
+  <link name="foot_final_1">
+    <visual>
+      <geometry>
+        <box size="0.4 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="foot_final_joint_1" type="fixed">
+    <origin xyz="-0.37 0 -0.135" rpy="0 ${pi/4} ${pi}"/>
+    <parent link="foot_1"/>
+    <child link="foot_final_1"/>
+  </joint>
+
+  <link name="wheel_1">
+    <visual>
+      <origin rpy="0 -${pi/2} 0"/>
+      <geometry>
+        <cylinder radius="${wheeldiam/2}" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="wheel_joint_1" type="continuous">
+    <parent link="foot_final_1"/>
+    <child link="wheel_1"/>
+    <origin xyz="0.19 0 0" rpy="0 ${pi/2} -${pi}"/>
+  </joint>
+
+  <link name="leg_2">
+    <visual>
+      <geometry>
+        <box size="0.5 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="leg_2_joint" type="fixed">
+    <origin xyz="0.3 0 0.25" rpy="0 0 ${pi}"/>
+    <parent link="body_neck"/>
+    <child link="leg_2"/>
+  </joint>
+
+  <link name="foot_2">
+    <visual>
+      <geometry>
+        <box size="0.5 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="leg_to_foot_2" type="fixed">
+    <origin xyz="-0.42 0 -0.17" rpy="0 ${pi/4} ${pi}"/>
+    <parent link="leg_2"/>
+    <child link="foot_2"/>
+  </joint>
+
+  <link name="foot_final_2">
+    <visual>
+      <geometry>
+        <box size="0.4 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="foot_final_joint_2" type="fixed">
+    <origin xyz="0.37 0 -0.135" rpy="0 -${pi/4} ${pi}"/>
+    <parent link="foot_2"/>
+    <child link="foot_final_2"/>
+  </joint>
+
+  <link name="wheel_2">
+    <visual>
+    <origin rpy="0 -${pi/2} 0"/>
+      <geometry>
+        <cylinder radius="${wheeldiam/2}" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="wheel_joint_2" type="continuous">
+    <parent link="foot_final_2"/>
+    <child link="wheel_2"/>
+    <origin xyz="-0.19 0 0" rpy="0 -${pi/2} -${pi}"/>
+  </joint>
+
+  <link name="leg_3">
+    <visual>
+      <geometry>
+        <box size="0.8 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="leg_3_joint" type="fixed">
+    <origin xyz="0 0 -0.068" rpy="0 ${pi/2} 0"/>
+    <parent link="body_neck"/>
+    <child link="leg_3"/>
+  </joint>
+
+  <link name="wheel_3">
+    <visual>
+    <origin rpy="0 -${pi/2} 0"/>
+      <geometry>
+        <cylinder radius="${wheeldiam/2}" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="wheel_joint_3" type="continuous">
+    <parent link="leg_3"/>
+    <child link="wheel_3"/>
+    <origin xyz="0.4 0 0" rpy="${pi} -${pi/2} -${pi}"/>
+  </joint>
+  
+  <link name="eye_1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.025" length="0.02"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="eye_1_to_face" type="fixed">
+    <origin xyz="0.15 0.15 0.38" rpy="-${pi/4} 0 -${pi/2}"/>
+    <parent link="body_neck"/>
+    <child link="eye_1"/>
+  </joint>
+
+  <link name="eye_2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.025" length="0.02"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="eye_2_to_face" type="fixed">
+    <origin xyz="-0.15 0.15 0.38" rpy="-${pi/4} 0 ${pi/2}"/>
+    <parent link="body_neck"/>
+    <child link="eye_2"/>
+  </joint>
+
+  <link name="eater_1">
+    <visual>
+      <geometry>
+        <box size="0.2 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="eater_1_joint" type="fixed">
+    <origin xyz="-0.13 0.25 0.24" rpy="0 0 -${pi/4}"/>
+    <parent link="body_neck"/>
+    <child link="eater_1"/>
+  </joint>
+
+  <link name="mouth_1">
+    <visual>
+      <geometry>
+        <box size="0.2 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="eater_mouth_1" type="fixed">
+    <origin xyz="-0.1 0.083 0" rpy="0 0 -${pi/2}"/>
+    <parent link="eater_1"/>
+    <child link="mouth_1"/>
+  </joint>
+
+  <link name="eater_2">
+    <visual>
+      <geometry>
+        <box size="0.2 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="eater_2_joint" type="fixed">
+    <origin xyz="0.13 0.25 0.24" rpy="0 0 ${pi/4}"/>
+    <parent link="body_neck"/>
+    <child link="eater_2"/>
+  </joint>
+
+  <link name="mouth_2">
+    <visual>
+      <geometry>
+        <box size="0.2 0.03 0.03"/>
+      </geometry>
+    <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="eater_mouth_2" type="fixed">
+    <origin xyz="0.1 0.083 0" rpy="0 0 -${pi/2}"/>
+    <parent link="eater_2"/>
+    <child link="mouth_2"/>
+  </joint>
+
+  <link name="base_footprint">
+  </link>
+
+  <joint name="base_footprint_to_link" type="fixed">
+    <origin rpy="0 0 -${pi/2}" xyz="0 0 0.5"/>
+    <parent link="base_footprint"/>
+    <child link="body_neck"/>
+  </joint>
+
+</robot>

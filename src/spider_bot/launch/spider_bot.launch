@@ -1,0 +1,8 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find spider_bot)/xacro/spider.xacro'"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find spider_bot)/config/spider.rviz"/>
+  <node pkg="r2d2_navigator" name="fake_r2d2_controller" type="fake_r2d2_controller"/>
+  <node pkg="spider_bot" name="server" type="server"/>
+</launch>

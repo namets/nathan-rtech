@@ -1,0 +1,32 @@
+SHORT GUIDE ON HOW TO RUN THE PROGRAM:
+
+STEP 1:
+
+Copy contents to your ROS repo from: 
+
+
+
+STEP 2:
+
+Open Terminal and run the following command:
+'roslaunch spider_bot spider_bot.launch'
+
+
+
+STEP 3:
+
+In another Terminal window run the following command:
+'rosrun spider_bot client #',
+
+where '#' has to be replaced with a number based on desired movement:
+1 - move straight 
+2 - rotate left
+3 - rotate right
+(Note: The first movement/rotation might be cut short due to an unknown bug, therefore it is suggested to rotate/move many times)
+
+NB! The following packages are prerequisites for running this program, they need to be installed:
+ - RVIZ
+ - joint_state_publisher
+ - robot_state_publisher
+ - r2d2_navigator 
+
